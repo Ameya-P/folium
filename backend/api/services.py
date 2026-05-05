@@ -39,6 +39,21 @@ def create_plant(plant_data: PlantRequest) -> dict | None:
     
     return get_plant(str(result.inserted_id))
 
+def create_plants(plants_data: list[PlantRequest]) -> list[dict]:
+    new_plants_data = []
+    for plant in plants_data:
+        new_plant = plant.model_dump(mode="json")
+        new_plant["created_at"] = datetime.now()
+        new_plants_data.append(new_plant)
+    
+    try:
+        # Note: insert_many is not atomic. Partial inserts possible on failure
+        result = plants_collection.insert_many(new_plants_data)
+    except Exception as e:
+        raise DatabaseCreationError("Failed to persist plant data to the database.") from e
+    
+    return [get_plant(str(plant_id)) for plant_id in result.inserted_ids]
+
 def delete_plant(plant_id: str) -> int:
     try: 
         result = plants_collection.delete_one({"_id": ObjectId(plant_id)})

@@ -1,3 +1,6 @@
+# HTTP-RELATED ERRORS
+
+# DATABASE ERRORS
 class DatabaseCreationError(Exception):
     """Raised when a plant document fails to insert into MongoDB."""
     pass
