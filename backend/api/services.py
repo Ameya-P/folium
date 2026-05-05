@@ -1,34 +1,50 @@
 from bson import ObjectId
 from .db import plants_collection
 from datetime import datetime
+from .schemas import PlantRequest
+from bson.errors import InvalidId
+from .exceptions import DatabaseCreationError, DatabaseDeletionError, DatabaseFindError, InvalidIdError
 
-def serialize_plant(doc):
-    doc["id"] = str(doc["_id"])
-    del doc["_id"]
-    return doc
+def serialize_plant(plant: dict) -> dict:
+    plant["id"] = str(plant["_id"])
+    del plant["_id"]
+    return plant
 
-def get_all_plants():
-    # Hint: pymongo collections have a .find() method
-    # It returns a cursor (like an iterator) of documents
-    # Each document has an _id that is an ObjectId — 
-    # you need to convert it to a string for JSON
-    # Hint: return a list, not a cursor
-    pass
+def get_all_plants() -> list[dict]:
+    try:
+        return [serialize_plant(plant) for plant in plants_collection.find({})]
+    except Exception as e:
+        raise DatabaseFindError("Failed to find plant data due to an unexpected error") from e
 
-def get_plant(plant_id):
-    # Hint: .find_one() takes a filter dict
-    # ObjectId(plant_id) converts a string id to the right type
-    # What should you return if the plant doesn't exist?
-    pass
+def get_plant(plant_id: str) -> dict | None:
+    try:
+        my_plant = plants_collection.find_one({"_id": ObjectId(plant_id)})
+    except InvalidId:
+        raise InvalidIdError(f"{plant_id} is not a valid plant id")
+    except Exception as e:
+        raise DatabaseFindError("Failed to find plant data due to an unexpected error") from e
+    
+    if not my_plant:
+        return None
+    
+    return serialize_plant(my_plant)
 
-def create_plant(data):
-    # Hint: .insert_one() takes a dict and returns an object
-    # with an .inserted_id attribute
-    # Add created_at timestamp here before inserting
-    pass
+def create_plant(plant_data: PlantRequest) -> dict | None:
+    new_plant = plant_data.model_dump(mode="json")
+    new_plant["created_at"] = datetime.now()
+    try:
+        result = plants_collection.insert_one(new_plant)
+    except Exception as e:
+        raise DatabaseCreationError("Failed to persist plant data to the database.") from e
+    
+    return get_plant(str(result.inserted_id))
 
-def delete_plant(plant_id):
-    # Hint: .delete_one() takes a filter dict
-    # Returns an object with .deleted_count attribute
-    # deleted_count of 0 means nothing was found to delete
-    pass
+def delete_plant(plant_id: str) -> int:
+    try: 
+        result = plants_collection.delete_one({"_id": ObjectId(plant_id)})
+    except InvalidId:
+        raise InvalidIdError(f"{plant_id} is not a valid plant id")
+    except Exception as e:
+        raise DatabaseDeletionError("Failed to delete plant data") from e
+    
+    return result.deleted_count
