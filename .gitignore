@@ -1,0 +1,18 @@
+# Environment variables
+backend/.env
+frontend/.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Django
+backend/db.sqlite3
+
+# Node
+frontend/node_modules/
+
+# OS
+.DS_Store
