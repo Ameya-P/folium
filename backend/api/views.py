@@ -71,7 +71,7 @@ class PlantViewSet(ViewSet):
         # POST /api/plants/bulk/
         response = {}
         try:
-            if not isinstance(response.data, list):
+            if not isinstance(request.data, list):
                 response["error"] = "Expected a list of plants"
                 return Response(response, status=status.HTTP_400_BAD_REQUEST)
             plants_data = [PlantRequest(**plant) for plant in request.data]
