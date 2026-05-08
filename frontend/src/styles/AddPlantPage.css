@@ -1,0 +1,94 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--margin-standard);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-standard);
+}
+
+.light-needs-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding-standard);
+}
+
+.watering-needs-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding-standard);
+}
+
+input, textarea {
+    background: var(--light);
+    border: none;
+    border-radius: 15px;
+    padding: var(--padding-standard);
+}
+
+.form-container button, a {
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    color: var(--accent-dark);
+    font-family: var(--heading-font);
+
+    background: var(--accent);
+    transition: color 0.8s ease;
+    border-radius: 20px;
+    border: none;
+
+    padding: var(--padding-mini);
+    padding-top: var(--padding-standard);
+}
+
+.form-container button:hover, a:hover {
+    color: var(--highlight-light);
+    background: var(--accent-medium);
+}
+
+.mini-header {
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    justify-content: space-between;
+}
+
+a {
+    width: 200px;
+}
+
+
+.add-plant-hub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-standard);
+}
+
+.option-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--padding-standard);
+}
+
+.option-container > a {
+    background-color: var(--light);
+    width: 400px;
+    min-height: 300px;
+
+    display: flex;           
+    align-items: center;      
+    justify-content: center;
+
+    padding: 20px;         
+    line-height: 1.4;        
+    color: var(--accent-dark); 
+    text-align: center;
+}

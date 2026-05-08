@@ -69,6 +69,8 @@ class PlantViewSet(ViewSet):
     @action(detail=False, methods=["post"], url_path="bulk")
     def bulk_create(self, request):
         # POST /api/plants/bulk/
+        print("REQUEST DATA:", request.data)  # add this
+        print("IS LIST:", isinstance(request.data, list))  # add this
         response = {}
         try:
             if not isinstance(request.data, list):

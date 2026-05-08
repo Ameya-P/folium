@@ -2,6 +2,8 @@ import "./styles/App.css"
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import WelcomePage from './pages/WelcomePage'
 import AddPlantPage from './pages/AddPlantPage'
+import DetailedAddPlantPage from "./pages/DetailedAddPlantPage"
+import BulkAddPlantPage from "./pages/BulkAddPlantPage"
 import CollectionPage from './pages/CollectionPage'
 import DetailPage from './pages/DetailPage'
 import Layout from './components/Layout'
@@ -14,9 +16,11 @@ const router = createBrowserRouter([
       errorElement: <NotFoundPage />,
       children: [
         { index: true, element: <WelcomePage />},
-        { path: '/add', element: <AddPlantPage />},
-        { path: '/plants', element: <CollectionPage />},
-        { path: '/plants/:id', element: <DetailPage />},
+        { path: 'add', element: <AddPlantPage />},
+        { path: 'add/details', element: <DetailedAddPlantPage />},
+        { path: 'add/bulk', element: <BulkAddPlantPage />},
+        { path: 'plants', element: <CollectionPage />},
+        { path: 'plants/:id', element: <DetailPage />},
       ]
     }
   ]);
@@ -26,4 +30,3 @@ export default function App() {
       <RouterProvider router={router} />
     )
 }
-       

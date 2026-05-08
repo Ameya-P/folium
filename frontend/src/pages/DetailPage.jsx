@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { getPlant } from "../api"
+import '../styles/DetailPage.css'
 
 export default function DetailPage() {
     const params = useParams();
