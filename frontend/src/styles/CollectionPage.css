@@ -1,0 +1,47 @@
+#collection-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-standard);
+
+    justify-content: center;
+    align-items: center;
+}
+
+#collection-container {
+    display: flex;
+    flex-flow: row wrap;
+
+    gap: var(--padding-standard);
+    justify-content: center;
+    align-items: space-around;
+}
+
+
+.plant-card {
+    background: var(--light);
+    border-radius: 20px;
+    padding: var(--padding-standard);
+
+    width: 400px;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: left;
+}
+
+.delete-modal {
+    background: var(--accent);
+    color: var(--accent-dark);
+    border-radius: 20px;
+    padding: var(--padding-standard);
+
+    width: 500px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

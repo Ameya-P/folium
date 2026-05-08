@@ -1,0 +1,54 @@
+/* BOX SIZING */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* REMOVE MARGINS AND PADDING */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* BODY DEFAULTS */
+body {
+  min-height: 100vh;
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* TEXT DEFAULTS */
+em {
+  font-style: italic;
+}
+
+/* VARIABLES */
+:root {
+  --dark: #003924;
+  --medium-dark: #3b634c;
+  --medium-light: #4a7c59;
+  --light: #ccead2;
+
+  --highlight-light: #fff7ec;
+  --highlight-dark: #fffbf5;
+
+  --accent: #ead1dc;
+  --accent-medium: #d5a6bd;
+  --accent-dark: #9f4671;
+
+  --heading-font: 'Vesper Libre', serif;
+  --heading-size-standard: 4rem;
+  --heading-size-mini: 3rem;
+  --body-font: 'Jost', sans-serif;
+  --body-size-standard: 1.5rem;
+
+  --padding-standard: 1.5rem;
+  --margin-standard: 2rem;
+
+  --padding-mini: 1.1rem;
+
+  --default-div-background: linear-gradient(#fffbf5, #fff7ec);
+
+}

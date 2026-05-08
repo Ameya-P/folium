@@ -1,15 +1,29 @@
-import { useEffect, useState } from 'react'
+import "./styles/App.css"
+import { createBrowserRouter, RouterProvider} from 'react-router-dom'
+import WelcomePage from './pages/WelcomePage'
+import AddPlantPage from './pages/AddPlantPage'
+import CollectionPage from './pages/CollectionPage'
+import DetailPage from './pages/DetailPage'
+import Layout from './components/Layout'
+import NotFoundPage from './pages/NotFoundPage'
 
-function App() {
-  const [msg, setMsg] = useState('')
+const router = createBrowserRouter([
+    {
+      path: '/', 
+      element: <Layout />,
+      errorElement: <NotFoundPage />,
+      children: [
+        { index: true, element: <WelcomePage />},
+        { path: '/add', element: <AddPlantPage />},
+        { path: '/plants', element: <CollectionPage />},
+        { path: '/plants/:id', element: <DetailPage />},
+      ]
+    }
+  ]);
 
-  useEffect(() => {
-    fetch('http://localhost:8000/api/hello/')
-      .then(res => res.json())
-      .then(data => setMsg(data.message))
-  }, [])
-
-  return <h1>{msg}</h1>
+export default function App() {
+    return (
+      <RouterProvider router={router} />
+    )
 }
-
-export default App
+       
