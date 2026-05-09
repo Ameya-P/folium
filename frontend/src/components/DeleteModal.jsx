@@ -46,13 +46,21 @@ export default function DeleteModal({id, visible, onDelete, onClose}) {
         }
     }
 
+    const handleClose = () => {
+        setDeleted(false);
+        onClose();
+    };
+
     return (
         <>
             {visible ? 
                 <div className="delete-modal">
                     <div className="modal-header">
                         {renderModalTitle()}
-                        <button onClick={onClose}>X</button>
+                        <button onClick={() => {
+                            setDeleted(false);
+                            onClose();
+                        }}>X</button>
                     </div>
                     {renderModalDescription()}
                     {!deleted && !error &&
