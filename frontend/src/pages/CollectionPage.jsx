@@ -52,7 +52,9 @@ export default function CollectionPage() {
 
     return (
         <div id="collection-page">
-            <DeleteModal id={selectedPlant} visible={showModal} onDelete={handleDelete} onClose={() => setShowModal(false)} />
+            {showModal ? <div className="modal-overlay">
+                <DeleteModal id={selectedPlant} visible={showModal} onDelete={handleDelete} onClose={() => setShowModal(false)} />
+            </div> : null}
             <h2>
                 {"{"}User’s{"}"} 
                 <em>&nbsp;garden</em>

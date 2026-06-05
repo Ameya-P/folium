@@ -57,7 +57,7 @@ export default function DeleteModal({id, visible, onDelete, onClose}) {
                 <div className="delete-modal">
                     <div className="modal-header">
                         {renderModalTitle()}
-                        <button onClick={() => {
+                        <button className="delete-alternate btn" onClick={() => {
                             setDeleted(false);
                             onClose();
                         }}>X</button>
@@ -65,8 +65,8 @@ export default function DeleteModal({id, visible, onDelete, onClose}) {
                     {renderModalDescription()}
                     {!deleted && !error &&
                         <div className="button-group">
-                            <button onClick={handleDelete}>Yes</button>
-                            <button onClick={onClose}>No</button>
+                            <button className="delete-alternate btn" onClick={handleDelete}>Yes</button>
+                            <button className="delete-alternate btn" onClick={onClose}>No</button>
                         </div>
                     }
                     {error && 
@@ -81,3 +81,4 @@ export default function DeleteModal({id, visible, onDelete, onClose}) {
         </>
     )
 }
+

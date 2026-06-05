@@ -1,48 +1,98 @@
-#collection-page {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-standard);
+/* ---- Page wrapper ---- */
 
-    justify-content: center;
-    align-items: center;
+#collection-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-standard);
+  justify-content: center;
+  align-items: center;
 }
+
+/* ---- Card grid ---- */
 
 #collection-container {
-    display: flex;
-    flex-flow: row wrap;
-
-    gap: var(--padding-standard);
-    justify-content: center;
-    align-items: space-around;
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--padding-standard);
+  justify-content: center;
 }
 
+/* ---- Individual plant card ---- */
 
 .plant-card {
-    background: var(--light);
-    border-radius: 20px;
-    padding: var(--padding-standard);
+  background: var(--light);
+  border-radius: 20px;
+  padding: var(--padding-standard);
 
-    width: 400px;
-    min-height: 300px;
+  width: 400px;
+  min-height: 300px;
 
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-standard);
-
-    justify-content: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-standard);
+  justify-content: flex-start; 
 }
 
-.delete-modal {
-    background: var(--accent);
-    color: var(--accent-dark);
-    border-radius: 20px;
-    padding: var(--padding-standard);
+.delete {
+  width: 70px;
+  color: var(--highlight-light);
+  background: var(--medium-dark);
+}
 
-    width: 500px;
-    text-align: center;
+.delete-alternate {
+  width: 70px;
+  color: var(--highlight-light);
+  background: var(--accent-medium);
+}
+
+.btn:hover {
+  color: var(--highlight-light);
+  background: var(--accent-dark);
+}
+
+/* ---- Delete confirmation modal ---- */
+
+.delete-modal {
+  background: var(--accent);
+  color: var(--accent-dark);
+  border-radius: 20px;
+  padding: var(--padding-standard);
+
+  width: 500px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--padding-standard);
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
 
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.295);
 }

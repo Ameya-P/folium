@@ -1,29 +1,8 @@
 #welcome-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--padding-standard);
-
-    text-align: center;
-}
-
-#welcome-page > a {
-    line-height: 1;
-    text-decoration: none;
-    text-align: center;
-    color: var(--accent-dark);
-    font-family: var(--heading-font);
-
-    background: var(--accent);
-    transition: color 0.8s ease;
-    border-radius: 20px;
-
-    padding: var(--padding-mini);
-    padding-top: var(--padding-standard);
-}
-
-#welcome-page > a:hover {
-    color: var(--highlight-light);
-    background: var(--accent-medium);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--padding-standard);
+  text-align: center;
 }

@@ -39,16 +39,16 @@ export default function BulkAddPlantPage() {
         } else if (error) {
             return <button onClick={handleSubmit}> Try Again? </button>;
         } else {
-            return <button type="submit">Submit</button>;
+            return <button onClick={handleSubmit}> Submit </button>;
         }
     }
 
-    return (<div className="add-plant-hub">
+    return (<div className="form-container">
         <div className="mini-header">
             <h2>Add multiple <em>pals</em>!</h2>
-            <Link to="/add">Return to add plant options</Link>
+            <Link className="btn" to="/add">Return to add plant options</Link>
         </div>
-        <form onSubmit={handleSubmit}> 
+        <form> 
             <label htmlFor="bulk-list">List all of your plant names as comma separated values! We’ll create cards you can fill out later.</label>
             <textarea id="bulk-list" name="bulk-list" rows="4" cols="50" value={formData} placeholder="Pothos, Fern, Cactus..." onChange={handleChange}>
             </textarea>

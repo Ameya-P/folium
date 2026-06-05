@@ -1,84 +1,65 @@
-@import './index.css';
+/* ---- Outer container ---- */
 
 #layout {
-    display: flex;
-    flex-direction: column;
-    margin: var(--margin-standard);
-    gap: var(--margin-standard);
-
-    min-height: 100vh
+  display: flex;
+  flex-direction: column;
+  margin: var(--margin-standard);
+  gap: var(--margin-standard);
+  min-height: 100vh;
 }
 
-/* HEADER */
+/* ---- Header ---- */
+
 header {
-    flex: 1;
+  flex: 1;
+  background: var(--default-div-background);
+  border-radius: 20px;
+  padding: var(--padding-standard);
 
-    background: var(--default-div-background);
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    padding: var(--padding-standard);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* CONTENT */
+/* ---- Content row (nav + outlet side by side) ---- */
+
 #content {
-    flex: 6;
-
-    display: flex;
-    flex-direction: row;
-    gap: var(--margin-standard);
+  flex: 6;
+  display: flex;
+  flex-direction: row;
+  gap: var(--margin-standard);
 }
 
-/* NAVIGATION */
+/* ---- Sidebar navigation ---- */
 
 nav {
-    flex: 1;
+  flex: 1;
+  background: var(--default-div-background);
+  border-radius: 20px;
+  padding: var(--padding-standard);
 
-    background: var(--default-div-background);
-    border-radius: 20px;
-    padding: var(--padding-standard);
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: left;
-    align-items: center;
-    gap: var(--padding-standard);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* fixed: was invalid value 'left' */
+  align-items: center;
+  gap: var(--padding-standard);
 }
 
-nav > a {
-    line-height: 1;
-    text-decoration: none;
-    text-align: center;
-    color: var(--medium-dark);
-    font-family: var(--heading-font);
-
-    background: var(--light);
-    transition: color 0.8s ease;
-    border-radius: 20px;
-
-    padding: var(--padding-mini);
-    padding-top: var(--padding-standard);
+/* Nav links use the shared .btn utility from index.css */
+.green {
+  width: 100%;
 }
 
-nav > a.active {
-    color: var(--highlight-light);
-    background: var(--medium-dark);
-}
+/* ---- Outlet content area ---- */
 
-/* OUTLET */
 #outlet-container {
-    flex: 5;
+  flex: 5;
+  background: var(--default-div-background);
+  border-radius: 20px;
+  padding: var(--padding-standard);
 
-    background: var(--default-div-background);
-    border-radius: 20px;
-    padding: var(--padding-standard);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

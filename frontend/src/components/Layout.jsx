@@ -10,9 +10,9 @@ export default function Layout() {
             </header>
             <div id="content">
                 <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/add">Add Plants</NavLink>
-                <NavLink to="/plants">View Collection</NavLink>
+                <NavLink to="/" className="btn green">Home</NavLink>
+                <NavLink to="/add" className="btn green">Add Plants</NavLink>
+                <NavLink to="/plants" className="btn green">View Collection</NavLink>
                 </nav>
                 <div id="outlet-container">
                     <Outlet/>

@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Vesper+Libre:wght@400;500;700;900&display=swap');
 
+/* ---- Body ---- */
+
 body {
   font-family: var(--body-font);
   font-size: var(--body-size-standard);
   color: var(--dark);
 
-  background-image: 
-    linear-gradient(rgba(34, 255, 155, 0.3), rgba(255, 252, 89, 0.3)), 
+  /* Textured paper background with green/yellow tint overlay */
+  background-image:
+    linear-gradient(rgba(34, 255, 155, 0.3), rgba(255, 252, 89, 0.3)),
     url('../assets/paper_tile.jpg');
   background-repeat: repeat;
 
@@ -14,7 +17,7 @@ body {
   flex-direction: column;
 }
 
-/* TEXT */
+/* ---- Headings ---- */
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
@@ -22,13 +25,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--dark);
 }
 
-h1 {
-  font-size: var(--heading-size-standard);
-}
+h1 { font-size: var(--heading-size-standard); }
+h2 { font-size: var(--heading-size-mini); }
 
-h2 {
-  font-size: var(--heading-size-mini);
-}
+/* ---- Accent text ---- */
 
 em {
   color: var(--medium-light);

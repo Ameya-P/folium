@@ -14,7 +14,7 @@ export default function WelcomePage() {
                 We’re here to help you remember them! Keep track of their species, 
                 watering needs, light requirements, and more!
             </p>
-            <Link to="/add" class="button-link">start your journey</Link>
+            <Link to="/add" className="btn">start your journey</Link>
             
         </div>
     )

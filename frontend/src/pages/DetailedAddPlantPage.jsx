@@ -52,7 +52,7 @@ export default function DetailedAddPlantPage() {
     return (<div className="form-container">
         <div className="mini-header">
             <h2>Add a new <em>plant pal</em>!</h2>
-            <Link to="/add">Return to add plant options</Link>
+            <Link className="btn" to="/add">Return to add plant options</Link>
         </div>
         <form>
             <label htmlFor="common_name">Common name</label>

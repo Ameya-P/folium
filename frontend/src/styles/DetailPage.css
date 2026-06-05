@@ -1,5 +1,26 @@
 .detail-page {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-standard);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-standard);
+}
+
+/* ---- Stat row (location, light, watering) ---- */
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  gap: var(--padding-standard);
+  flex-wrap: wrap;
+}
+
+/* ---- Quirks / notes section ---- */
+
+.description {
+  background: var(--light);
+  border-radius: 15px;
+  padding: var(--padding-standard);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-standard);
 }

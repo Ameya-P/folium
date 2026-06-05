@@ -11,7 +11,7 @@ class PlantRequest(BaseModel):
     light_needs: Optional[Light] = None
     watering_frequency: Optional[Water] = None
     notes: Optional[str] = None
-    image_url: Optional[str] = None
+    image_id: Optional[str] = None
     user_id: Optional[str] = None
 
 class PlantResponse(PlantRequest):

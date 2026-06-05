@@ -10,7 +10,7 @@ export default function PlantCard(props) {
 
     return (
         <div className="plant-card">
-            <button onClick={() => handleDelete(props.id)}>X</button>
+            <button className="delete btn" onClick={() => handleDelete(props.id)}>X</button>
             <img alt="depicts plant user uploaded"></img>
             <div className="plant-info">
                 <h3>{props.common_name}</h3>
@@ -18,7 +18,7 @@ export default function PlantCard(props) {
                 {props.watering_frequency && <p>{`💧: ${props.watering_frequency}`} </p>}
                 {props.light_needs && <p>{`☀️: ${props.light_needs}`} </p>}
             </div>
-            <Link to={`/plants/${props.id}`}> View Details </Link>
+            <Link className="btn" to={`/plants/${props.id}` }> View Details </Link>
         </div>
     )
 }

@@ -1,94 +1,97 @@
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: var(--margin-standard);
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-standard);
-}
-
-.light-needs-container {
-    display: flex;
-    flex-direction: row;
-    gap: var(--padding-standard);
-}
-
-.watering-needs-container {
-    display: flex;
-    flex-direction: row;
-    gap: var(--padding-standard);
-}
-
-input, textarea {
-    background: var(--light);
-    border: none;
-    border-radius: 15px;
-    padding: var(--padding-standard);
-}
-
-.form-container button, a {
-    line-height: 1;
-    text-decoration: none;
-    text-align: center;
-    color: var(--accent-dark);
-    font-family: var(--heading-font);
-
-    background: var(--accent);
-    transition: color 0.8s ease;
-    border-radius: 20px;
-    border: none;
-
-    padding: var(--padding-mini);
-    padding-top: var(--padding-standard);
-}
-
-.form-container button:hover, a:hover {
-    color: var(--highlight-light);
-    background: var(--accent-medium);
-}
-
-.mini-header {
-    display: flex;
-    flex-direction: row;
-    align-self: stretch;
-    justify-content: space-between;
-}
-
-a {
-    width: 200px;
-}
-
+/* ---- Add plant hub (option picker) ---- */
 
 .add-plant-hub {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--padding-standard);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--padding-standard);
 }
 
+/* Row of option cards */
 .option-container {
-    display: flex;
-    flex-direction: row;
-    gap: var(--padding-standard);
+  display: flex;
+  flex-direction: row;
+  gap: var(--padding-standard);
+}
+
+/* Each option card is a large clickable link */
+.option-container > a {
+  background-color: var(--light);
+  width: 400px;
+  min-height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  line-height: 1.4;
+  color: var(--accent-dark);
+  text-align: center;
 }
 
 .option-container > a {
-    background-color: var(--light);
-    width: 400px;
-    min-height: 300px;
+  border-radius: 10%;
+  text-decoration: none;
+}
 
-    display: flex;           
-    align-items: center;      
-    justify-content: center;
+/* ---- Detailed form (single plant add) ---- */
 
-    padding: 20px;         
-    line-height: 1.4;        
-    color: var(--accent-dark); 
-    text-align: center;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--margin-standard);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-standard);
+  width: 100%;
+}
+
+/* ---- Radio button groups ---- */
+
+.light-needs-container,
+.watering-needs-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--padding-standard);
+  flex-wrap: wrap; /* prevents overflow on narrow screens */
+}
+
+/* ---- Mini header (used in bulk add page) ---- */
+
+.mini-header {
+  display: flex;
+  flex-direction: row;
+  align-self: stretch;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---- Form buttons ---- */
+
+.form-container button {
+  font-family: var(--heading-font);
+  color: var(--accent-dark);
+  background: var(--accent);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: var(--padding-standard) var(--padding-mini);
+  transition: color 0.8s ease, background 0.8s ease;
+}
+
+.form-container button:hover {
+  color: var(--highlight-light);
+  background: var(--accent-medium);
+}
+
+.form-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
