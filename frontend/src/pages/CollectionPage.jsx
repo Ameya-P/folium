@@ -41,7 +41,7 @@ export default function CollectionPage() {
         } else if (plants.length === 0) {
             return <div> 
                 <p>There are no plants in your collection.</p>
-                <Link to="/add">Add some new plant friends!</Link></div>;
+                <Link className="btn" to="/add">Add some new plant friends!</Link></div>;
         } else {
             return <div id="collection-container">
                 {plants.map((plant) => (

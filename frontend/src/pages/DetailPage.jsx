@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { getPlant } from "../api"
+import { getPlant, IMAGE_SERVICE } from "../api"
 import '../styles/DetailPage.css'
 
 export default function DetailPage() {
@@ -25,6 +25,10 @@ export default function DetailPage() {
         fetchData();
     }, [])
 
+    const imageUrl = plant?.image_id 
+        ? `${IMAGE_SERVICE}/image/${plant.image_id}`
+        : "/placeholder.png"
+
     function renderPage() {
         if (loading) {
             return <p> Loading ... </p>;
@@ -34,7 +38,7 @@ export default function DetailPage() {
             return <>
                 <h2>{plant.common_name}</h2>
                 {plant.botanical_name && <h3><em>{plant.botanical_name}</em></h3>}
-                <img alt="plant image"></img>
+                <img src={imageUrl} alt={plant.common_name} />
                 <div className="stats">
                     {plant.location && <p>📍{plant.location}</p>}
                     {plant.light_needs && <p>☀️{plant.light_needs}</p>}
@@ -53,6 +57,6 @@ export default function DetailPage() {
 
     return <div className="detail-page">
         {renderPage()}
-        <Link to="/plants">Return To Your Collection</Link>
+        <Link className="btn" to="/plants">Return To Your Collection</Link>
     </div>
 }

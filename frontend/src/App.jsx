@@ -8,6 +8,7 @@ import CollectionPage from './pages/CollectionPage'
 import DetailPage from './pages/DetailPage'
 import Layout from './components/Layout'
 import NotFoundPage from './pages/NotFoundPage'
+import HouseplantExplorerPage from "./pages/HouseplantExplorerPage"
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
         { path: 'add/bulk', element: <BulkAddPlantPage />},
         { path: 'plants', element: <CollectionPage />},
         { path: 'plants/:id', element: <DetailPage />},
+        { path: 'explore', element: <HouseplantExplorerPage />},
       ]
     }
   ]);

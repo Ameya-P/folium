@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { createPlant } from "../api"
+import { createPlant, uploadImage } from "../api"
 import '../styles/AddPlantPage.css'
 import { useNavigate, Link } from "react-router-dom"
 
@@ -16,7 +16,12 @@ export default function DetailedAddPlantPage() {
     const [formData, setFormData] = useState(initialFormState)
     const [loading, setLoading] = useState(false)  
     const [error, setError] = useState(null)
+    const [imageFile, setImageFile] = useState(null)
     const navigate = useNavigate()
+
+    function handleFileChange(e) {
+        setImageFile(e.target.files[0])
+    }
 
     function handleChange(e) {
         setFormData({
@@ -29,13 +34,19 @@ export default function DetailedAddPlantPage() {
         e.preventDefault() 
         try {
             setLoading(true);
-            await createPlant(formData)
+
+            let image_id = null
+            if (imageFile) {
+                image_id = await uploadImage(imageFile)
+            }
+
+            await createPlant({...formData, image_id})
+            setFormData(initialFormState)
             navigate("/plants");
         } catch (e) {
             setError(e.message);
         } finally {
             setLoading(false);
-            setFormData(initialFormState)
         }
     }
 
@@ -145,9 +156,23 @@ export default function DetailedAddPlantPage() {
                 </label>
             </div>
 
+            <label htmlFor="image">Plant photo (optional)</label>
+            <input 
+                type="file"
+                id="image"
+                accept="image/*"
+                onChange={handleFileChange}
+            />
+
             <label htmlFor="notes">Notes</label>
-            <textarea id="notes" name="notes" rows="4" cols="50" onChange={handleChange}>
-            Note anything you want to remember about your plant!
+            <textarea 
+                id="notes" 
+                name="notes" 
+                rows="4" 
+                cols="50" 
+                onChange={handleChange}
+                placeholder="Note anything you want to remember about your plant!"
+            >
             </textarea>
             {renderSubmitButton()}
         </form>

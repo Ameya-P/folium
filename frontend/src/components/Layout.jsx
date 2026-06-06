@@ -13,6 +13,7 @@ export default function Layout() {
                 <NavLink to="/" className="btn green">Home</NavLink>
                 <NavLink to="/add" className="btn green">Add Plants</NavLink>
                 <NavLink to="/plants" className="btn green">View Collection</NavLink>
+                <NavLink to="/explore" className="btn green">Explore New Plants</NavLink>
                 </nav>
                 <div id="outlet-container">
                     <Outlet/>

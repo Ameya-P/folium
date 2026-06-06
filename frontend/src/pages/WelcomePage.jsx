@@ -4,7 +4,7 @@ import '../styles/WelcomePage.css'
 export default function WelcomePage() {
     return (
         <div id="welcome-page">
-            <img alt="decorative plant illustration"></img>
+            <img className="logo" alt="decorative plant illustration" src="logo.png"></img>
             <h2>
                 A little home for your
                 <em>&nbsp;leafy companions.</em>

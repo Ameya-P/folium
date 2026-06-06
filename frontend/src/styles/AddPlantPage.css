@@ -53,6 +53,14 @@ form {
   width: 100%;
 }
 
+form > label, form > p {
+  font-weight: 600;
+}
+
+.light-needs-container > label, .watering-needs-container > label {
+  font-weight: 400;
+}
+
 /* ---- Radio button groups ---- */
 
 .light-needs-container,

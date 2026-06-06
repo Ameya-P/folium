@@ -33,6 +33,10 @@
   justify-content: flex-start; 
 }
 
+.plant-card > img {
+  align-self: center;
+}
+
 .delete {
   width: 70px;
   color: var(--highlight-light);
